@@ -19,7 +19,11 @@ jobs:
 
        # 2. Pasul care construieste imaginea Docker
        - name: Build Docker Image
-         run: docker build -t my-app
+         uses: docker/build-push-action@v5
+         with:
+           context: .
+           push: false
+           tags: my-app:latest
         
    
      
