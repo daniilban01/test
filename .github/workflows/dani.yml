@@ -1,0 +1,25 @@
+name: CI Pipeline
+on: push
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+       - name: Check code
+         uses: actions/checkout@v4 
+
+       # 1. Pasul care ruleaza un script python
+       - name: Configurare python
+         uses: actions/setup-python@v5
+         with:
+           python-version: '3.12'
+
+       - name: Run python script
+         run: python script.py
+
+       # 2. Pasul care construieste imaginea Docker
+       - name: Build Docker Image
+         run: docker build -t my-app
+        
+   
+     
