@@ -1,5 +1,6 @@
-FROM dani_python
+FROM python:3.12-slim
 LABEL maintainer="dani_din_drg"
-RUN apt-get update
+WORKDIR /app
+COPY script.py /app/
 CMD ["python", "script.py"]
 
